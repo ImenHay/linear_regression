@@ -1,14 +1,14 @@
 import sys
 import os
 
-a = 13
-b = 99
+a = 2
+b = 11
 
 def save_params(a, b):
     params_file = "params.txt"
     try:
         with open(params_file, "w+") as f:
-            f.write("{0}\n{1}".format(a, b))
+            f.write(f"{a}\n{b}")
     except:
         print("FILE ERROR")
         exit()
