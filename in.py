@@ -9,7 +9,6 @@ def save_params(a, b):
     try:
         with open(params_file, "w+") as f:
             f.write("{0}\n{1}".format(a, b))
-        f.close()
     except:
         print("FILE ERROR")
         exit()
