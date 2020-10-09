@@ -35,4 +35,4 @@ if __name__ == "__main__":
             break
         except:
             pass
-    print("This car worth {} euro".format(calc(a, b, km)))
+    print("This car worth {} euros".format(calc(a, b, km)))
