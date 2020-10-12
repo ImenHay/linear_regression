@@ -1,30 +1,34 @@
 import sys
 import os
+import numpy as np
+
+
 
 def get_params():
-    params_file = "params.txt"
+    params_file = "thetas.txt"
     try:
-        f = open(params_file)
-        lines = f.readlines()
+        with open(params_file, "r") as f:
+            lines = f.readlines()
         try:
-            a = int(lines[0])
-            b = int(lines[1])
+            theta0 = int(lines[0])
+            theta1 = int(lines[1])
         except:
             print("Unvalid file")
             sys.exit()
     except:
         print("theta0 and theta1 are null")
         sys.exit()
-    return a, b
+    return np.array([[theta0], [theta1]])
         
 calc = lambda a, b, km: (a * km) + b
 
+
 if __name__ == "__main__":
     try: 
-        a, b = get_params()
+        theta = get_params()
         pass
     except:
-        a, b = 0, 0
+        theta = np.array([[0], [0]])
         pass
     while True:
         try:
@@ -32,7 +36,7 @@ if __name__ == "__main__":
             if km < 0:
                 print("unvalid value\n")
                 raise NotPositiveError
-            break
+            break 
         except:
             pass
-    print("This car worth {} euros".format(calc(a, b, km)))
+    print("This car worth {} euros".format(calc(int(theta[0]), int(theta[1]), km)))
