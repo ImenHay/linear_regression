@@ -5,7 +5,7 @@ import numpy as np
 
 
 def get_params():
-    params_file = "thetas.txt"
+    params_file = "params.txt"
     try:
         with open(params_file, "r") as f:
             lines = f.readlines()
