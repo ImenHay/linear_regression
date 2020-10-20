@@ -29,8 +29,6 @@ if __name__ == "__main__":
         theta = get_params()
         t0 = float(theta[0])
         t1 = float(theta[1])
-        print(t0)
-        print(t1)
         pass
     except:
         theta = np.array([[0], [0]])
@@ -38,7 +36,8 @@ if __name__ == "__main__":
     while True:
         try:
             km = int(input("Please enter a mileage:\n"))
-            if km < 0:
+            price = calc(t0, t1, km)
+            if km < 0 or price < 0:
                 print("unvalid value\n")
                 raise NotPositiveError
             break 
